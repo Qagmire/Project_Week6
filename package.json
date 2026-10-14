@@ -1,0 +1,30 @@
+{
+    "name":  "atelier-blockchain-store",
+    "version":  "1.0.0",
+    "private":  true,
+    "scripts":  {
+                    "start":  "concurrently -k \"node app.js\" \"vite --host 127.0.0.1\"",
+                    "backend":  "node app.js",
+                    "frontend":  "vite --host 127.0.0.1",
+                    "build":  "vite build",
+                    "test":  "node --test tests/*.test.js",
+                    "chain":  "node scripts/chain.cjs",
+                    "fund":  "node scripts/fund.cjs"
+                },
+    "dependencies":  {
+                         "web3":  "^4.16.0",
+                         "express":  "^4.21.2",
+                         "cors":  "^2.8.5",
+                         "bip39":  "^3.1.0",
+                         "hdkey":  "^2.1.0",
+                         "ethereumjs-util":  "^7.1.5",
+                         "react":  "^19.0.0",
+                         "react-dom":  "^19.0.0",
+                         "qrcode.react":  "^4.2.0"
+                     },
+    "devDependencies":  {
+                            "vite":  "^6.1.0",
+                            "concurrently":  "^9.1.2",
+                            "ganache":  "^7.9.2"
+                        }
+}
