@@ -2,48 +2,6 @@
 
 Dự án bám theo **Bai_Tap_Thuc_Hanh_Blockchain_Dynamic_Address.pdf**. Tài liệu **Designing a Payment Gateway for Online Merchants.pdf** được dùng cho luồng cửa hàng, MetaMask, QR và kiểm tra số dư. Khi hai tài liệu có cấu hình khác nhau, ưu tiên đề bài: Express **5000**, React **3000**, thư viện **hdkey**.
 
-## Chạy trên Windows
-
-**Chạy bằng một lần bấm:** bấm đúp file **`CHAY-WEBSITE.cmd`** trong thư mục dự án. File tự bật Ganache, Express và React, đợi cả ba sẵn sàng rồi mở website trong trình duyệt mặc định. Nếu dịch vụ đã chạy, sẽ dùng lại. Giữ cửa sổ khởi chạy mở; nhấn `Ctrl+C` để dừng các dịch vụ được cửa sổ đó khởi động. Chọn trình duyệt có MetaMask làm trình duyệt mặc định để thanh toán.
-
-Đã cài dependencies trong thư mục dự án. Khi chép sang máy khác, chạy `npm install` trước. Cần Node.js và npm.
-
-Terminal 1:
-
-```powershell
-cd 'D:\BLCK 6'
-npm run chain
-```
-
-Terminal 2:
-
-```powershell
-cd 'D:\BLCK 6'
-npm start
-```
-
-Mở **http://localhost:3000** bằng Chrome hoặc Edge có extension MetaMask. Backend là **http://localhost:5000**; Ganache JSON-RPC là **http://127.0.0.1:8545**, chain ID **1337**.
-
-Nếu dùng Ganache GUI thay Ganache đi kèm, cấu hình RPC port 8545 và chain ID 1337, rồi bỏ bước `npm run chain`. Không chạy hai Ganache cùng cổng. Không dùng mnemonic thương nhân để tạo tài khoản khách hàng: điều đó sẽ cấp sẵn số dư vào các địa chỉ nhận tiền.
-
-## Tương tác MetaMask thật
-
-1. Nhấn **Kết nối MetaMask** trên đầu trang và duyệt kết nối trong extension. Khi kết nối thành công, nút hiển thị địa chỉ rút gọn; nhấn nút để xem/sao chép địa chỉ đầy đủ và kiểm tra mạng. Có thể dùng tài khoản MetaMask hiện có. Không cần nhập seed phrase hoặc khóa riêng vào website. Nếu đang ở mạng khác, nhấn **Chuyển sang Ganache** trong bảng thông tin ví.
-2. Thêm mạng **Ganache Local**, RPC **http://127.0.0.1:8545**, chain ID **1337**, currency **ETH**. Nút thanh toán cũng yêu cầu MetaMask thêm/chuyển mạng này khi cần; bạn duyệt yêu cầu trong extension.
-3. Sao chép **địa chỉ công khai** tài khoản MetaMask. Trong terminal thứ ba, cấp ETH thử nghiệm:
-
-   ```powershell
-   npm run fund -- 0xDIA_CHI_CONG_KHAI_CUA_BAN
-   ```
-
-   Thay toàn bộ `0xDIA_CHI_CONG_KHAI_CUA_BAN` bằng địa chỉ ví thật của bạn. Lệnh gửi 10 ETH thử nghiệm từ tài khoản Ganache đã mở khóa đến tài khoản đó, chỉ trên chain 1337.
-4. Chọn size, nhấn dấu `+` trên sản phẩm → Giỏ hàng → Thanh toán bằng ETH.
-5. Nhấn **Thanh toán với MetaMask**. Duyệt kết nối tài khoản và xác nhận giao dịch trong popup MetaMask.
-6. Backend đọc số dư bằng Web3.js. Sau khi đủ ETH, giao diện cập nhật **Thanh toán thành công** trong lần kiểm tra tiếp theo (mỗi 3 giây).
-
-Đây là extension MetaMask thật ký giao dịch thật trên blockchain Ganache cục bộ, dùng ETH thử nghiệm. Không sử dụng Ethereum mainnet hoặc ETH có giá trị thực cho bài tập. QR chứa URI Ethereum với địa chỉ, chain 1337 và số tiền Wei. Ví ngoài cũng phải truy cập được cùng Ganache; `127.0.0.1` trên điện thoại không trỏ đến máy tính.
-
-Hướng dẫn chính thức: [thêm mạng MetaMask](https://support.metamask.io/configure/networks/how-to-add-a-custom-network-rpc), [Ethereum wallet provider API](https://eips.ethereum.org/EIPS/eip-1193).
 
 ## Đối chiếu yêu cầu đề bài
 
