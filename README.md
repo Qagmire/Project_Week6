@@ -22,16 +22,6 @@ Dự án bám theo **Bai_Tap_Thuc_Hanh_Blockchain_Dynamic_Address.pdf**. Tài li
 
 Route đơn hàng dùng chung bộ sinh ví với `/api/getMAddress`; mỗi lần tạo phiên thanh toán lấy một địa chỉ qua cùng logic. API bán hàng tính giá/số tiền ở server, không tin giá frontend gửi lên. Đơn lưu trong `data/orders.json`; danh sách ID đơn của khách lưu trên trình duyệt. Số dư trước khi tạo đơn được ghi lại để số tiền có sẵn trên địa chỉ tái sử dụng không làm đơn mới tự thành PAID. Một địa chỉ không được cấp cho hai đơn đang chờ còn hạn.
 
-## Sai lệch địa chỉ minh họa trong đề
-
-Với đúng mnemonic `share confirm story grocery check soon cool priority doctor cruise subway provide` và đúng đường dẫn đề bài, kết quả thực tế là:
-
-| Đường dẫn | Địa chỉ thực tế |
-|---|---|
-| `m/44'/60'/0'/0/0` | `0x38979A730badBdcE4bD6eFD3AfC12CA24C73d01C` |
-| `m/44'/60'/0'/0/1` | `0x315074C434eca2B79878f4a1A2323d12eE413fdb` |
-
-Hai địa chỉ mẫu trong PDF (`0x3897B0FA54F0CD211e4fFDd1A48805F04336c285`, `0x3150247FE43C651DC59A41eEf5ee9bCEdA6E72EB`) không khớp đầu vào. Kiểm thử đối chiếu kết quả `bip39`/`hdkey`/`ethereumjs-util` với bộ sinh tài khoản độc lập của Ganache và cho kết quả giống nhau. Không sửa thuật toán hoặc gán cứng địa chỉ để khớp ví dụ sai.
 
 ## Kiểm tra và nộp bài
 
